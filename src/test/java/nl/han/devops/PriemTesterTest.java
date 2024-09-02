@@ -21,14 +21,14 @@ public class PriemTesterTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {4, 6, 8, 9, 10, 12})
+	@ValueSource(ints = {4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20})
 	public void isPriemgetal_onwaarden_voor_niet_priemgetallen(int value) {
 		boolean result = priemTester.isPriemgetal(value);
 
 		Assertions.assertFalse(result, value + " zou geen priemgetal moeten zijn.");
 	}
 	@ParameterizedTest
-	@ValueSource(ints = {2, 3, 5, 7, 9, 11})
+	@ValueSource(ints = {2, 3, 5, 7, 11, 13, 17, 19})
 	public void isPriemgetal_waar_voor_priemgetallen(int value) {
 		boolean result = priemTester.isPriemgetal(value);
 
