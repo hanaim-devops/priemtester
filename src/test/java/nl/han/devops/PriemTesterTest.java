@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PriemTesterTest {
 
-	private final PriemTester priemTester = new PriemTester();
+	private final PriemTester priemTester = new ChatGPTPriemTester();
 
 	@ParameterizedTest
 	@ValueSource(ints = {-1, 0, 1})

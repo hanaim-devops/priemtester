@@ -8,7 +8,7 @@ public class PriemTesterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PriemTesterApplication.class, args);
-		var priemTester = new PriemTester();
+		var priemTester = new ChatGPTPriemTester();
 		for(int i = 0; i<10; i++) {
 			System.out.println("Getal " + i + " is een priemgetal?" + priemTester.isPriemgetal(i));
 		}
