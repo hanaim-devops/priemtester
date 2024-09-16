@@ -1,6 +1,6 @@
 package nl.han.devops;
 
-public interface FuzzBuzzService {
+public interface FizzBuzzService {
 
     public String fizzbuzz(int i);
 }
