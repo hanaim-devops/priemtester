@@ -8,13 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PriemTesterTest {
+public class CustomPriemTesterTest {
 
-	private final PriemTester priemTester = new ChatGPTPriemTester();
+	private final PriemTester priemTester = new CustomPriemTester();
 
 	@ParameterizedTest
 	@ValueSource(ints = {-1, 0, 1})
-	public void isPriemgetal_WaardenKleinerDan2_ReturnFalse(int value) {
+	public void isPriemgetal_waar_voor_getallen_kleiner_dan_twee(int value) {
 		boolean result = priemTester.isPriemgetal(value);
 
 		Assertions.assertFalse(result, value + " zou geen priemgetal moeten zijn.");
@@ -22,7 +22,7 @@ public class PriemTesterTest {
 
 	@ParameterizedTest
 	@ValueSource(ints = {4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20})
-	public void isPriemgetal_onwaarden_voor_niet_priemgetallen(int value) {
+	public void isPriemgetal_onwaar_voor_niet_priemgetallen(int value) {
 		boolean result = priemTester.isPriemgetal(value);
 
 		Assertions.assertFalse(result, value + " zou geen priemgetal moeten zijn.");

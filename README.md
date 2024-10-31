@@ -10,9 +10,15 @@ Dit is het project bij de Java/Spring-Boot variant van de tutorial ['Unit testin
 
 In de `orm-bdd` branch van dit project zit of komt een variant die ook nog RESTful services aanbiedt via Spring Boot. Gebruik dit project of ga verder in je eigen Java 'prime project' uit weekopdracht 1 en/of weekopdracht en zorg dat je:
 
-- Priemgetallen opslaat
+- unit test-project
+- en een broncode-project bevat.
 
 ## Bronnen
 
-- Microsoft Learn (3-7-2024) *Unit testing C# in .NET using dotnet test and xUnit*. Geraadpleegd september 2024 op <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test>
-- Wal, B.W. van der (8-2024) *Unit testen in Java met Maven Surefire en JUnit*. Geraadpleegd september 2024 op <http://minordevops.nl/blogs/spring-boot-priemtester>
+De .NET-variant stond/staat op Microsoft Learn (3-7-2024): <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test>
+Er zijn twee implementaties, een eigen 'custom' en eentje die een Maven package gebruikt uit `commons-numbers-primes` package. Zie JavaDoc:
+https://commons.apache.org/proper/commons-numbers/commons-numbers-primes/javadocs/api-1.2/org/apache/commons/numbers/primes/Primes.html
+
+Deze ondersteunen beiden 'enkel' normale integers. Voor grotere getallen moeten we BigInteger gebruiken:
+- https://stackoverflow.com/questions/1801003/java-biginteger-prime-numbers
+- https://commons.apache.org/proper/commons-numbers/commons-numbers-primes/javadocs/api-1.2/org/apache/commons/numbers/primes/Primes.html

@@ -1,6 +1,6 @@
 package nl.han.devops;
 
-public class ChatGPTPriemTester implements PriemTester {
+public class CustomPriemTester implements PriemTester {
 
     @Override
     public boolean isPriemgetal(int kandidaat) {
