@@ -14,43 +14,7 @@
     <label for="response"><input id="response" value="Loading..." /></label>
     <br/>
     <label for="priemKandidaat">Priem kandidaat <input id="priemKandidaat" type="number" /></label><button id="checkButton">Check</button>
-    <label for="priem-result">Priem resultaat <div id="priem-result"></div></label>
+    <label for="priem-result">Priem resultaat <input readonly id="priem-result"></input></label>
 </body>
-<script>
-    console.log("Hallo allemaal in ello primo testero!");
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('checkButton').addEventListener('click', function() {
-            fetch('/priem')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('response').value = data;
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                document.getElementById('response').innerText = 'Error loading data';
-            });
-            const number = document.getElementById('priemKandidaat').value;
-            fetch(`/priem`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({number: number})
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById('priem-result');
-                if (data.isPrime) {
-                    resultDiv.innerText = `${number} is een priemgetal`;
-                } else {
-                    resultDiv.innerText = `${number} is GEEN priemgetal`;
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                document.getElementById('result').innerText = 'Error loading data';
-            })
-        })
-    })
-</script>
+<script src="priem-check.js"></script>
 </html>
