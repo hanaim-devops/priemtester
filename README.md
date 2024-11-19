@@ -16,12 +16,40 @@ Run dan deze Spring Boot (web) applicatie met:
 mvn spring-boot:run
 ```
 
-Dit project bestaat uit
+Voor (simpelere) lint check doe
+```console
+mvn checkstyle:check
+```
+
+Om alle tests uit te voeren, gebruik de standaard (old skool Sun Checkstyle (v9.3)):
+```console
+mvn test
+```
+
+Om alleen unit tests uit te voeren:
+```console
+mvn test -Punit-tests
+```
+
+Om alleen integratietests uit te voeren:
+```console
+mvn verify -Pintegration-tests
+```
+
+
+
+NB: Deze opzet is afhankelijk van het strikt volgen van  naamgevingsconventies (`*UnitTest.java` voor unit tests en `*IntegrationTest.java` voor integratietests) om onderscheid te maken tussen de twee soorten tests. Bij uitbreiden van het project wil je wellicht dit aanpassen. Of de postfix `AcceptanceTest` gebruiken voor de integratietests, e.d.
+
+## Code
+
+Hier meer technische details over de code en structuur.
+
+Dit project bestaat uit:
+
 - unit test-project
 - en een broncode-project bevat.
 
-Er zijn twee implementaties, een eigen 'custom' en eentje die een Maven package gebruikt uit `commons-numbers-primes` package. Zie JavaDoc:
-https://commons.apache.org/proper/commons-numbers/commons-numbers-primes/javadocs/api-1.2/org/apache/commons/numbers/primes/Primes.html
+Er zijn twee implementaties, een eigen 'custom' en eentje die een Maven package gebruikt uit `commons-numbers-primes` package. Zie JavaDoc in [common-numbers-primes](https://commons.apache.org/proper/commons-numbers/commons-numbers-primes/javadocs/api-1.2/org/apache/commons/numbers/primes/Primes.html).
 
 Deze ondersteunen beiden 'enkel' normale integers. Voor grotere getallen kunnen/moeten we `BigInteger`s priemfunctie gebruiken (apache.org, z.d.).
 

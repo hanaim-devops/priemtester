@@ -1,5 +1,6 @@
 package nl.han.devops;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
@@ -17,6 +18,7 @@ public class PriemController {
     }
 
     @PostMapping
+    @Tag(name = "PriemController", description = "Endpoints for prime number checking")
     public Map<String, Boolean> checkIfPrime(@RequestBody Map<String, String> request) {
         // Verwacht een JSON met een veld "number" als string
         BigInteger number = new BigInteger(request.get("number"));
@@ -33,12 +35,5 @@ public class PriemController {
     @GetMapping
     public String test() {
         return "Hello, world!";
-    }
-
-    @GetMapping("/check")
-    public Map<String, Boolean> checkIfPrime(@RequestParam("number") String number) {
-        var bigInteger = new BigInteger(number);
-        var isPrime = priemService.isPriemgetal(bigInteger);
-        return Map.of("isPrime", isPrime);
     }
 }

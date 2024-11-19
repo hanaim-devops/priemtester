@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class MavenPriemServiceTest {
+public class MavenPriemServiceUnitTest {
 
     private final PriemService priemService = new MavenPriemService();
 
