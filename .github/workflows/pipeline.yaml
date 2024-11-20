@@ -32,6 +32,7 @@ jobs:
       - name: Install and build with Yarn
         run: |
           yarn install
+          yarn test
           yarn build
 
       - name: Build with Maven
@@ -46,4 +47,4 @@ jobs:
       - name: Run Unit tests
         run: mvn test
       - name: Run Tests
-        run: mvn verify
+        run: mvn --batch-mode --update-snapshots verify  # TODO: Uitzoeken wat batch-mode en update-snapshots doet.
