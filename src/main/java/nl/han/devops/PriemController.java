@@ -19,15 +19,21 @@ public class PriemController {
 
     @PostMapping
     @Tag(name = "PriemController", description = "Endpoints for prime number checking")
-    public Map<String, Boolean> checkIfPrime(@RequestBody Map<String, String> request) {
-        // Verwacht een JSON met een veld "number" als string
-        BigInteger number = new BigInteger(request.get("number"));
+    public Boolean checkIfPrime(@RequestBody String input) {
+        BigInteger number;
+        try {
+            // Check of de String wel een BigInteger is.
+            number = new BigInteger(input);
+        } catch (NumberFormatException e) {
+            // Als het geen BigInteger is, retourneer false.
+            return false;
+        }
 
-        // Roep de service aan om te controleren of het getal priem is
+        // Roep de service aan om te controleren of het getal priem is.
         boolean isPrime = priemService.isPriemgetal(number);
 
-        // Retourneer het resultaat als JSON
-        return Map.of("isPrime", isPrime);
+        // Retourneer het resultaat (Jackson zet dit automatisch om naar JSON.
+        return isPrime;
     }
 
     // Add a test GET endpoint, that returns a 'hello world' string.
