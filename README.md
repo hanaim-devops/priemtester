@@ -26,19 +26,17 @@ Om alle tests uit te voeren, gebruik de standaard (old skool Sun Checkstyle (v9.
 mvn test
 ```
 
-Om alleen unit tests uit te voeren:
+Om de unit tests uit te voeren:
 ```console
-mvn test -Punit-tests
+mvn test
 ```
 
-Om alleen integratietests uit te voeren:
+Om de integratietests uit te voeren:
 ```console
-mvn verify -Pintegration-tests
+mvn verify
 ```
 
-
-
-NB: Deze opzet is afhankelijk van het strikt volgen van  naamgevingsconventies (`*UnitTest.java` voor unit tests en `*IntegrationTest.java` voor integratietests) om onderscheid te maken tussen de twee soorten tests. Bij uitbreiden van het project wil je wellicht dit aanpassen. Of de postfix `AcceptanceTest` gebruiken voor de integratietests, e.d.
+NB: Deze opzet is volgends Spring Boot Convention Over Configuration dat unittests een postfix Test hebben  (`*Test.java` en acceptatie of integratie tests een post `IT` (*IT.java`).
 
 ## Code
 

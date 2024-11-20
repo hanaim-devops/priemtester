@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // Spring Boot test? Je moet toch alleen je eigen code testen, niet de frameworks of libraries die je gebruikt.
 @SpringBootTest
 @AutoConfigureMockMvc
-class PriemControllerIntegrationTest {
+class PriemControllerIT {
 
         @Autowired
         private PriemController sut;
