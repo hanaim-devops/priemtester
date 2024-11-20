@@ -1,14 +1,28 @@
 package nl.han.devops;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigInteger;
 
-import static org.apache.commons.numbers.primes.Primes.isPrime;
-
-public class MavenPriemTester implements PriemTester {
+@Service
+public class CustomPriemService implements PriemService {
 
     @Override
     public boolean isPriemgetal(int kandidaat) {
-        return isPrime(kandidaat);
+        // Als het getal kleiner is dan 2, is het geen priemgetal
+        if (kandidaat < 2) {
+            return false;
+        }
+
+        // Controleer divisors tot en met de vierkantswortel van de kandidaat
+        for (int deler = 2; deler <= Math.sqrt(kandidaat); deler++) {
+            if (kandidaat % deler == 0) {
+                return false; // Als er een deler is, is het geen priemgetal
+            }
+        }
+
+        // Als geen delers zijn gevonden, is het getal een priemgetal
+        return true;
     }
 
     public boolean isPriemgetal(BigInteger kandidaat) {
@@ -34,5 +48,4 @@ public class MavenPriemTester implements PriemTester {
         // Geen factoren gevonden, dus het is een priemgetal
         return true;
     }
-
 }

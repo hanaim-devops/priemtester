@@ -21,6 +21,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run test-storybook`
 
+npx storybook@latest init
+
 start-storybook --ci
 
 ### `npm run build`

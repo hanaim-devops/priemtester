@@ -1,0 +1,49 @@
+name: Build a JAR in spring boot using springboot
+# Bron 9-1-2024: https://www.geeksforgeeks.org/spring-boot-continuous-integration-using-github-actions/
+# De `on.push.branches` stond op `master`; dit moet `main` zijn, maar voor test doen we nu `gh-actions`.
+# Verder moesten de actions op @v4 van `checkout` en `setup-java` actions
+# Dit vanwege security deprecation van @v2 en @v3 en upgrade van hen naar naar NodeJS > 20
+# Bron: https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      # Stel Java in (met Maven ondersteuning)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Stel Node.js in (met npm en yarn ondersteuning)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21' # Kies de gewenste Node.js-versie
+          cache: yarn         # Cache voor snellere builds met Yarn
+
+      # Installeer afhankelijkheden en voer linting of build uit met Yarn
+      - name: Install and build with Yarn
+        run: |
+          yarn install
+          yarn build
+
+      - name: Build with Maven
+        run: mvn clean compile
+      - name: Package with Maven
+        run: mvn package -DskipTests
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-app
+          path: '${{ github.workspace }}/target/*.jar'
+      - name: Run Unit tests
+        run: mvn test
+      - name: Run Tests
+        run: mvn verify
