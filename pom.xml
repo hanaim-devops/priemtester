@@ -62,18 +62,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.bytebuddy</groupId>
-			<artifactId>byte-buddy</artifactId>
-			<version>1.14.19</version>
-		</dependency>
-		<dependency>
-			<groupId>net.bytebuddy</groupId>
-			<artifactId>byte-buddy-agent</artifactId>
-			<version>1.14.19</version>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.6.0</version> <!-- Use the latest version available -->
 		</dependency>
 		<dependency>
 			<groupId>org.instancio</groupId>
@@ -103,34 +93,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<jvmArguments>-javaagent:lib/byte-buddy-agent-1.14.19.jar</jvmArguments>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>3.3.0</version>
-				<executions>
-					<execution>
-						<id>copy-byte-buddy-agent</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>net.bytebuddy</groupId>
-									<artifactId>byte-buddy-agent</artifactId>
-									<version>1.14.19</version>
-									<outputDirectory>${project.build.directory}/lib</outputDirectory>
-									<destFileName>byte-buddy-agent-1.14.19.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

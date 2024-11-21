@@ -4,10 +4,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/priem")
+@Tag(name = "PriemController", description = "Endpoints for prime number checking")
 public class PriemController {
 
     private final PriemService priemService;
@@ -18,26 +18,24 @@ public class PriemController {
     }
 
     @PostMapping
-    @Tag(name = "PriemController", description = "Endpoints for prime number checking")
-    public Boolean checkIfPrime(@RequestBody String input) {
-        BigInteger number;
+    public Boolean checkOfPrieme(@RequestBody NumberRequest input) {
+        String numberStr = input.getNumber();
         try {
-            // Check of de String wel een BigInteger is.
-            number = new BigInteger(input);
-        } catch (NumberFormatException e) {
-            // Als het geen BigInteger is, retourneer false.
-            return false;
+            // First, try to parse as Integer
+            Integer intValue = Integer.valueOf(numberStr);
+            return priemService.isPriemgetal(intValue);
+        } catch (NumberFormatException ex) {
+            // If it fails, parse as BigInteger
+            // TODO: Alleen toestaan voor ingelogd gebruikers.
+            try {
+                BigInteger bigIntValue = new BigInteger(numberStr);
+                return priemService.isPriemgetal(bigIntValue);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid input: Not a valid number");
+            }
         }
-
-        // Roep de service aan om te controleren of het getal priem is.
-        boolean isPrime = priemService.isPriemgetal(number);
-
-        // Retourneer het resultaat (Jackson zet dit automatisch om naar JSON.
-        return isPrime;
     }
 
-    // Add a test GET endpoint, that returns a 'hello world' string.
-    // http://localhost:8080/priem
     @GetMapping
     public String test() {
         return "Hello, world!";
