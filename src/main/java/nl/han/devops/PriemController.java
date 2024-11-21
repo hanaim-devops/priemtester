@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/priem")
-@Tag(name = "PriemController", description = "Endpoints for prime number checking")
+// @Tag(name = "PriemController", description = "Endpoints for prime number checking")
 public class PriemController {
 
     private final PriemService priemService;
@@ -18,7 +18,7 @@ public class PriemController {
     }
 
     @PostMapping
-    public Boolean checkOfPrieme(@RequestBody NumberRequest input) {
+    public Boolean checkOfPriem(@RequestBody NumberRequest input) {
         String numberStr = input.getNumber();
         try {
             // First, try to parse as Integer

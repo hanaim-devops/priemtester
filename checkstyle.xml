@@ -87,3 +87,4 @@
         <suppress checks="MissingJavadocMethod" files=".*\.java"/>
     </module>
 </module>
+</module>

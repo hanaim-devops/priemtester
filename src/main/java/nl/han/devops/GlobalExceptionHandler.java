@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.server.ResponseStatusException;
 
 @ControllerAdvice
+/** GlobalExceptionHandler is een klasse die alle exceptions afvangt en afhandelt. */
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)

@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
             .then(response => response.json())
             .then(isPrime => {
-                const resultDiv = document.getElementById('priem-result');
+                const priemResult = document.getElementById('priem-result');
                 if (isPrime) {
-                    resultDiv.innerText = `${number} is een priemgetal`;
+                    priemResult.value = `${number} is een priemgetal`;
                 } else {
-                    resultDiv.innerText = `${number} is GEEN priemgetal`;
+                    priemResult.value = `${number} is GEEN priemgetal`;
                 }
             })
             .catch(error => {

@@ -2,7 +2,7 @@
 import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { rest } from 'msw';
-import { setupWorker } from 'msw/node';
+// import { setupWorker } from 'msw/node';
 import PriemGetalTester from './PriemgetalTester';
 
 export default {

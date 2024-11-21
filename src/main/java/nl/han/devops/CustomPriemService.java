@@ -8,7 +8,7 @@ import java.math.BigInteger;
 public class CustomPriemService implements PriemService {
 
     @Override
-    public boolean isPriemgetal(int kandidaat) {
+    public boolean isPriemgetal(final int kandidaat) {
         // Als het getal kleiner is dan 2, is het geen priemgetal
         if (kandidaat < 2) {
             return false;
@@ -27,7 +27,8 @@ public class CustomPriemService implements PriemService {
 
     public boolean isPriemgetal(BigInteger kandidaat) {
         // Gebruik standaard BigInteger ProbablePrime
-        var result = kandidaat.isProbablePrime(15);
+        final int CERTAINTY = 15;
+        var result = kandidaat.isProbablePrime(CERTAINTY);
 
         if (!result) {
             return false;

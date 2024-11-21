@@ -32,6 +32,7 @@ jobs:
       - name: Install and build with Yarn
         run: |
           yarn install
+          yarn lint
           yarn test
           yarn build
 
