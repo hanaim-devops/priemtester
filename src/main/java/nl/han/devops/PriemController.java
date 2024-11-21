@@ -4,10 +4,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/priem")
+@Tag(name = "PriemController", description = "Endpoints for prime number checking")
 public class PriemController {
 
     private final PriemService priemService;
@@ -18,20 +18,24 @@ public class PriemController {
     }
 
     @PostMapping
-    @Tag(name = "PriemController", description = "Endpoints for prime number checking")
-    public Map<String, Boolean> checkIfPrime(@RequestBody Map<String, String> request) {
-        // Verwacht een JSON met een veld "number" als string
-        BigInteger number = new BigInteger(request.get("number"));
-
-        // Roep de service aan om te controleren of het getal priem is
-        boolean isPrime = priemService.isPriemgetal(number);
-
-        // Retourneer het resultaat als JSON
-        return Map.of("isPrime", isPrime);
+    public Boolean checkOfPrieme(@RequestBody NumberRequest input) {
+        String numberStr = input.getNumber();
+        try {
+            // First, try to parse as Integer
+            Integer intValue = Integer.valueOf(numberStr);
+            return priemService.isPriemgetal(intValue);
+        } catch (NumberFormatException ex) {
+            // If it fails, parse as BigInteger
+            // TODO: Alleen toestaan voor ingelogd gebruikers.
+            try {
+                BigInteger bigIntValue = new BigInteger(numberStr);
+                return priemService.isPriemgetal(bigIntValue);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid input: Not a valid number");
+            }
+        }
     }
 
-    // Add a test GET endpoint, that returns a 'hello world' string.
-    // http://localhost:8080/priem
     @GetMapping
     public String test() {
         return "Hello, world!";
