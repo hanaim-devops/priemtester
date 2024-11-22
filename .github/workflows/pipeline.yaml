@@ -29,7 +29,9 @@ jobs:
         working-directory: ./priemtester-ui
         with:
           node-version: '21' # Kies de gewenste Node.js-versie
-          cache: 'npm'       # Cache voor snellere builds met NPM
+          cache: npm       # Cache voor snellere builds met NPM
+          # Specificeer path naar package-lock.json omdat deze in subfolder zit i.p.v. in root
+          cache-dependency-path: ./priemtester-ui/package-lock.json
 
       # Installeer afhankelijkheden en voer linting of build
       - name: Install and build with Yarn
@@ -52,4 +54,5 @@ jobs:
       - name: Run Unit tests
         run: mvn test
       - name: Run Tests
-        run: mvn --batch-mode --update-snapshots verify  # TODO: Uitzoeken wat batch-mode en update-snapshots doet.
+        # TODO: Uitzoeken wat batch-mode en update-snapshots doet
+        run: mvn --batch-mode --update-snapshots verify  .
