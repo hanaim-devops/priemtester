@@ -39,22 +39,7 @@ class PriemControllerTest {
         when(mockPriemService.isPriemgetal(input)).thenReturn(expected);
 
         // Act
-        var actual = sut.checkIfPrime("" + input);
-
-        // Assert
-        assertThat(actual).isEqualTo(expected);
-    }
-
-    @Test
-    void PriemControllerIntegerReturnsWhatServiceReturns() {
-        // Arrange.
-        var input = Instancio.create(BigInteger.class);
-        var expected = Instancio.create(boolean.class);
-
-        var numberRequest = new NumberRequest(input.toString());
-        when(mockPriemService.isPriemgetal(input).thenReturn(expected);
-        // Act
-        var actual = sut.checkOfPriem(input);
+        var actual = sut.checkOfPriem(new NumberRequest(input.toString()));
 
         // Assert
         assertThat(actual).isEqualTo(expected);

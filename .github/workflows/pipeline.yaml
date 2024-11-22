@@ -20,6 +20,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          # Cache Maven-artefacten voor snellere builds
+          cache: 'maven'
 
       # Stel Node.js in (met npm en yarn ondersteuning)
       - name: Set up Node.js
@@ -31,10 +33,10 @@ jobs:
       # Installeer afhankelijkheden en voer linting of build uit met Yarn
       - name: Install and build with Yarn
         run: |
-          yarn install
-          yarn lint
-          yarn test
-          yarn build
+          npm install
+          npm lint
+          npm test
+          npm build
 
       - name: Build with Maven
         run: mvn clean compile
