@@ -26,7 +26,6 @@ jobs:
       # Stel Node.js in (met npm en yarn ondersteuning)
       - name: Set up Node.js
         uses: actions/setup-node@v4
-        working-directory: ./priemtester-ui
         with:
           node-version: '21' # Kies de gewenste Node.js-versie
           cache: npm       # Cache voor snellere builds met NPM
