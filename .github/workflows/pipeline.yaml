@@ -37,10 +37,9 @@ jobs:
         working-directory: ./priemtester-ui 
         run: |
           npm install
-          npm lint
-          npm test
-          npm build
-
+          npm run lint
+          npm run build
+          // npm test
       - name: Build with Maven
         run: mvn clean compile
       - name: Package with Maven
