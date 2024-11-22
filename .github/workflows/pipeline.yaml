@@ -28,9 +28,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '21' # Kies de gewenste Node.js-versie
-          cache: yarn         # Cache voor snellere builds met Yarn
+          cache: 'npm'       # Cache voor snellere builds met NPM
 
-      # Installeer afhankelijkheden en voer linting of build uit met Yarn
+      # Installeer afhankelijkheden en voer linting of build
       - name: Install and build with Yarn
         run: |
           npm install
