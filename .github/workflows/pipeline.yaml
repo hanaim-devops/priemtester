@@ -32,6 +32,7 @@ jobs:
 
       # Installeer afhankelijkheden en voer linting of build
       - name: Install and build with Yarn
+        working-directory: ./priemtester-ui 
         run: |
           npm install
           npm lint
