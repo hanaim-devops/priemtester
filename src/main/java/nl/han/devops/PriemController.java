@@ -26,7 +26,7 @@ public class PriemController {
             return priemService.isPriemgetal(intValue);
         } catch (NumberFormatException ex) {
             // If it fails, parse as BigInteger
-            // TODO: Alleen toestaan voor ingelogd gebruikers.
+            // TODO: Alleen toestaan voor ingelogde gebruikers.
             try {
                 BigInteger bigIntValue = new BigInteger(numberStr);
                 return priemService.isPriemgetal(bigIntValue);
@@ -34,10 +34,5 @@ public class PriemController {
                 throw new IllegalArgumentException("Invalid input: Not a valid number");
             }
         }
-    }
-
-    @GetMapping
-    public String test() {
-        return "Hello, world!";
     }
 }

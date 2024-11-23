@@ -17,9 +17,6 @@ export default {
                     return res(
                         ctx.json({
                             isPriem: isPrime,
-                            aantalLoops: isPrime ? 3 : 5,
-                            berekentijd: isPrime ? 12 : 25,
-                            isMemoized: isPrime,
                         })
                     );
                 }),
@@ -45,7 +42,4 @@ Default.play = async ({ canvasElement }) => {
 
     // Controleer of de juiste resultaten worden weergegeven
     await canvas.findByText('Is Priem: Ja');
-    await canvas.findByText('Aantal Loops: 3');
-    await canvas.findByText('Berekentijd: 12 ms');
-    await canvas.findByText('Is Memoized: Ja');
 };

@@ -33,3 +33,5 @@ src/main/resources/static/react/*
 
 ### VS Code ###
 .vscode/
+
+dist
