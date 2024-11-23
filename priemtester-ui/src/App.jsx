@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './App.css';
 import PriemGetalTester from "./priemtester/PriemgetalTester";
 import PriemFetchService from './priemtester/PriemFetchService.js';

@@ -33,7 +33,7 @@ jobs:
           cache-dependency-path: ./priemtester-ui/package-lock.json
 
       # Installeer afhankelijkheden en voer linting of build
-      - name: Install and build with Yarn
+      - name: Install and build met npm
         working-directory: ./priemtester-ui 
         run: |
           npm install
