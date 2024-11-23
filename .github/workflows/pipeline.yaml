@@ -36,7 +36,7 @@ jobs:
       - name: Debug Directory Structure
         working-directory: ./priemtester-ui
         run: |
-          ls -la ../../src/main/resources/static/
+          ls -la ../src/main/resources
       - name: Install and build met npm
         working-directory: ./priemtester-ui 
         run: |
