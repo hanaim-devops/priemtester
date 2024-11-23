@@ -34,16 +34,15 @@ jobs:
 
       # Installeer afhankelijkheden en voer linting of build uit.
       - name: Debug Directory Structure
-        working-directory: ./priemtester-ui
         run: |
-          ls -la ../src/main/resources
+          ls -al src/main/resources
       - name: Install and build met npm
-        working-directory: ./priemtester-ui 
+        # working-directory: ./priemtester-ui
         run: |
-          npm install
+          # npm install --prefix ./priemtester-ui
           # npm run lint
-          npm run build
-          npm test
+          npm run build --prefix ./priemtester-ui
+          npm test --prefix ./priemtester-ui
       - name: Build with Maven
         run: mvn clean compile
       - name: Package with Maven
