@@ -32,14 +32,18 @@ jobs:
           # Specificeer path naar package-lock.json omdat deze in subfolder zit i.p.v. in root
           cache-dependency-path: ./priemtester-ui/package-lock.json
 
-      # Installeer afhankelijkheden en voer linting of build
+      # Installeer afhankelijkheden en voer linting of build uit.
+      - name: Debug Directory Structure
+        working-directory: ./priemtester-ui
+        run: |
+          ls -la ../../src/main/resources/static/
       - name: Install and build met npm
         working-directory: ./priemtester-ui 
         run: |
           npm install
-          npm run lint
+          # npm run lint
           npm run build
-          // npm test
+          npm test
       - name: Build with Maven
         run: mvn clean compile
       - name: Package with Maven

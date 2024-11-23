@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const PriemGetalTester = ({ priemFetchService }) => {
     const [kandidaat, setKandidaat] = useState('13');
