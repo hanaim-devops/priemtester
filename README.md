@@ -10,6 +10,8 @@ Dit is het project bij de Java/Spring-Boot variant van de tutorial ['Unit testin
 
 Zoals elke goede README.md starten we met een 'How to run'. Zoals o.a. Microsoft aanraadt (Microsoft Learn, 2022). Zorg dat je **Maven** geïnstalleerd hebt. Maven is een populaire build tool voor Java-projecten. Je kunt Maven installeren via de officiële instructies [hier](https://maven.apache.org/install.html).
 
+De front-end stappen zitten in de README.md van de React front-end in de [`priemtester-ui` folder](priemtester-ui/README.md).
+
 Run dan deze Spring Boot (web) applicatie met:
 
 ```console
@@ -53,12 +55,12 @@ Deze ondersteunen beiden 'enkel' normale integers. Voor grotere getallen kunnen/
 
 ## Extra: Front-end en pipeline
 
-In de `gh-actions` branch zit een versie met een pipeline en front-end.
+In de folder `.github/workflows` folder zit een GitHub Actions pipeline bestand. Een scripted pipeline. Ofwel CI/CD pipeline. Dit is de standaard folder waar GitHub deze verwacht. Er zit ook een dependabot bestand in, om deze security feature niet te veel je eigen pipeline runs te laten vervuilen. Dit is aan jezelf of je dit wilt veranderen. 
 Deze converteren we naar een React front-end met een storybook test.
 
 ## Extra: ORM & BDD Opdracht
 
-In de `orm-bdd` branch van dit project komt een variant die ook nog RESTful services aanbiedt via Spring Boot. Gebruik dit project of ga verder in je eigen Java 'prime project' uit weekopdracht 1 en/of weekopdracht en zorg dat je:
+Voor de minor DevOps moet er nog ORM en BDD gedaan worden. Het ORM stuk zit nu alleen in de .NET variant hiervan in een anadere repo. Het BDD stuk is nog geheel todo
 
 ## Bronnen
 
