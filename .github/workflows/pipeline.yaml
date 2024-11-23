@@ -39,7 +39,7 @@ jobs:
       - name: Install and build met npm
         # working-directory: ./priemtester-ui
         run: |
-          # npm install --prefix ./priemtester-ui
+          npm install --prefix ./priemtester-ui
           # npm run lint
           npm run build --prefix ./priemtester-ui
           npm test --prefix ./priemtester-ui
