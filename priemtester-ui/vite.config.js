@@ -13,4 +13,9 @@ export default defineConfig({
         environment: 'jsdom',
         setupFiles: './testSetup.js', // Optional: For custom setups
     },
+    build: {
+        outDir: '../src/main/resources/static/react', // Correct directory
+        emptyOutDir: true, // Clear old files
+    },
+
 });

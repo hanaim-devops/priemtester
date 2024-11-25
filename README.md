@@ -18,14 +18,13 @@ Run dan deze Spring Boot (web) applicatie met:
 mvn spring-boot:run
 ```
 
-Voor (simpelere) lint check doe
+En surf naar https://localhost:8090/ om de applicatie te gebruiken.
+
+(Of wat je inregeld hebt in property `service.port`in `application.properties`, ik nu iets anders dan 8080 vanwege collission met andere services/POCs op mijn machine.)
+
+Voor (simpelere) lint check gebruik de standaard (old skool) Sun Checkstyle (v9.3):
 ```console
 mvn checkstyle:check
-```
-
-Om alle tests uit te voeren, gebruik de standaard (old skool Sun Checkstyle (v9.3)):
-```console
-mvn test
 ```
 
 Om de unit tests uit te voeren:
