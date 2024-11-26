@@ -14,6 +14,11 @@ In de project directory `priemtester-ui`, start je de front-end in development m
 npx vite dev
 ```
 
+RUn ook de Linting tool
+```
+mvn checkstyle:check
+```
+
 Open [http://localhost:3000](http://localhost:3000) om de web app te zien (of Vite opent deze automatisch).
 
 Je kunt de [React Developer](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) tools extensie in je browser installeren om de componenten te inspecteren. Je krijgt een extra tab 'Components' in de Chrome DevTools (druk op F12 om de DevTools te openen).
