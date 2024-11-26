@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'openjdk' # Kies de gewenste distributie
+          distribution: 'oracle' # Kies de gewenste distributie
           # Cache Maven-artefacten voor snellere builds
           cache: 'maven'
 
