@@ -14,8 +14,8 @@ export default defineConfig({
         setupFiles: './testSetup.js', // Optional: For custom setups
     },
     build: {
-        outDir: '../src/main/resources/static/react', // Correct directory
-        emptyOutDir: true, // Clear old files
+        outDir: '../src/main/resources/static', // Correct directory
+        emptyOutDir: false, // Clear old files
     },
 
 });

@@ -18,7 +18,7 @@ Run dan deze Spring Boot (web) applicatie met:
 mvn spring-boot:run
 ```
 
-En surf naar https://localhost:8090/ om de applicatie te gebruiken.
+En surf naar http://localhost:8090/ om de applicatie te gebruiken.
 
 (Of wat je inregeld hebt in property `service.port`in `application.properties`, ik nu iets anders dan 8080 vanwege collission met andere services/POCs op mijn machine.)
 
@@ -59,7 +59,7 @@ Deze converteren we naar een React front-end met een storybook test.
 
 ## Extra: ORM & BDD Opdracht
 
-Voor de minor DevOps moet er nog ORM en BDD gedaan worden. Het ORM stuk zit nu alleen in de .NET variant hiervan in een anadere repo. Het BDD stuk is nog geheel todo
+Voor de minor DevOps moet er nog ORM en BDD gedaan worden. Het ORM stuk zit nu alleen in de .NET variant hiervan in een andere repo. Het BDD stuk is nog geheel todo
 
 ## Bronnen
 
