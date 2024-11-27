@@ -4,10 +4,8 @@ name: Build a JAR in spring boot using springboot
 # Verder moesten de actions op @v4 van `checkout` en `setup-java` actions
 # Dit vanwege security deprecation van @v2 en @v3 en upgrade van hen naar naar NodeJS > 20
 # Bron: https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
 jobs:
   build:
     runs-on: ubuntu-latest
