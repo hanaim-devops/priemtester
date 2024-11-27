@@ -4,10 +4,10 @@ name: Build a JAR in spring boot using springboot
 # Verder moesten de actions op @v4 van `checkout` en `setup-java` actions
 # Dit vanwege security deprecation van @v2 en @v3 en upgrade van hen naar naar NodeJS > 20
 # Bron: https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '21' # Kies de gewenste Node.js-versie
-          cache: npm       # Cache voor snellere builds met NPM
+          cache: npm # Cache voor snellere builds met NPM
           # Specificeer path naar package-lock.json omdat deze in subfolder zit i.p.v. in root
           cache-dependency-path: ./priemtester-ui/package-lock.json
 
